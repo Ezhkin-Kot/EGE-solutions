@@ -1,3 +1,4 @@
+# Для простых задач с одной кучей
 from functools import lru_cache
 
 def moves(h):
