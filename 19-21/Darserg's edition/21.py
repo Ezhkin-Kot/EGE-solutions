@@ -1,11 +1,11 @@
 # Two neeps code
 def f(x, h):
     if (h == 2 or h == 4) and x >= 68:
-        return 1
+        return 1 # Победа
     if h == 4 and x < 68:
-        return 0
+        return 0 # Поражение
     if h < 4 and x >= 68:
-        return 0
+        return 0 # Поражение
     else:
         if h % 2 == 1: # Проверка, чей сейчас ход
             return f(x + 1, h + 1) or f(x + 4, h + 1) or f(x * 5, h + 1) # Если ход первого игрока (Пети), то нужно проверить его ходы на возможную победу
