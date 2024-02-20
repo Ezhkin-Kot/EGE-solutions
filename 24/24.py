@@ -1,4 +1,4 @@
-s = open('24_TZ.txt').readline().split('E')
+s = open('24.txt').readline().split('E')
 cnt = 0
 mx = 1000000000
 for i in range(len(s)-99):
