@@ -4,7 +4,7 @@ import psutil
 import os
 
 path = ""
-list_of_buttons = ""
+list_of_buttons = []
 seconds = 0
 process_name = ""
 
@@ -32,21 +32,34 @@ def open_app(path):
 
 def input_data():
     print("Which program should be blocked")
-    process_name = input("Data should be like <your_app>.exe or <your_app>.dmg")
-    print("Which program should be opened")
-    path = input("Write path to app here...")
-    numOfButtons = int(input("How much button you would like to block"))
+    while True:
+        process_name = input("Data should be like <your_app>.exe or <your_app>.app \n")
+        if ".exe" in process_name or '.app' in process_name:
+            break
+        else:
+            print("Incorrect name")
+    # print("Which program should be opened")
+    # path = input("Write path to app here...")
+    while True:
+        numOfButtons = int(input("How much button you would like to block \n"))
+        if 0 < numOfButtons < 86:
+            break
     for _ in range(numOfButtons):
         list_of_buttons.append(input("Button: "))
     print("For how much time you would like to block buttons")
-    seconds = int(input("Print time in seconds"))
+    while True:
+        seconds = int(input("Print time in seconds \n"))
+        if 0 < seconds:
+            break
 
 
 def main():
     print("Welcome to my app")
     input_data()
-    open_app(path)
+    # open_app(path)
     while True:
         if application_opened(process_name):
             block_buttons(list_of_buttons, seconds)
         time.sleep(60)
+
+main()
